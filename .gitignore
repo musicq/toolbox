@@ -1,0 +1,17 @@
+.DS_Store
+
+.vscode
+.idea
+
+node_modules
+dist
+
+*.log
+
+coverage
+.eslintcache
+
+*.env
+
+# for typecheck
+explainTypes.txt

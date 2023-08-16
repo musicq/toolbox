@@ -1,0 +1,23 @@
+{
+  "name": "utils",
+  "version": "0.1.0",
+  "description": "Personal utility functions",
+  "scripts": {
+    "dev": "tsup src/*.ts --watch --clean",
+    "build": "tsup src/*.ts --dts --sourcemap --format esm,cjs,iife --clean",
+    "test:w": "vitest -w",
+    "test": "vitest --run --coverage"
+  },
+  "keywords": [
+    "utils",
+    "utility"
+  ],
+  "author": "kui.liang.sg@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.5.0",
+    "tsup": "^7.2.0",
+    "typescript": "^5.1.6",
+    "vitest": "^0.34.1"
+  }
+}
