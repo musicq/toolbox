@@ -1,3 +1,1 @@
-export function foo() {
-  console.log(1)
-}
+export * from './runParallel'
