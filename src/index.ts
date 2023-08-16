@@ -1,3 +1,5 @@
 export * from './lazyInit'
+export * from './retry'
 export * from './runParallel'
 export * from './timelog'
+export * from './wait'
