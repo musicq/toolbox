@@ -1,7 +1,7 @@
 {
   "name": "utils",
   "version": "0.1.0",
-  "description": "Personal utility functions",
+  "description": "Utility functions",
   "scripts": {
     "dev": "tsup src/*.ts --watch --clean",
     "build": "tsup src/*.ts --dts --sourcemap --format esm,cjs,iife --clean",
