@@ -3,10 +3,19 @@
   "version": "0.1.0",
   "description": "Utility functions",
   "scripts": {
-    "dev": "tsup src/*.ts --watch --clean",
-    "build": "tsup src/*.ts --dts --sourcemap --format esm,cjs,iife --clean",
+    "build": "tsup src/*.ts",
     "test:w": "vitest -w",
     "test": "vitest --run --coverage"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
   },
   "keywords": [
     "utils",
