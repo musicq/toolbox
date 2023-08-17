@@ -1,3 +1,19 @@
+/**
+ * Group an array by a key.
+ *
+ * # Example
+ *
+ * ```ts
+ * const source = [
+ *   {name: 'a', value: 1},
+ *   {name: 'b', value: 2},
+ *   {name: 'a', value: 3},
+ *   {name: 'b', value: 4},
+ * ]
+ * const result = groupBy(source, x => x.name, x => x.value)
+ * // {a: [1, 3], b: [2, 4]}
+ * ```
+ */
 export function groupBy<S, V>(
   source: S[],
   keySelector: (v: S) => string,
@@ -16,14 +32,28 @@ export function groupBy<S, V>(
 
 if (import.meta.vitest) {
   describe('groupBy', () => {
-    test('groupBy', () => {
-      const source = [
-        {name: 'a', value: 1},
-        {name: 'b', value: 2},
-        {name: 'a', value: 3},
-        {name: 'b', value: 4},
-      ]
+    const source = [
+      {name: 'a', value: 1},
+      {name: 'b', value: 2},
+      {name: 'a', value: 3},
+      {name: 'b', value: 4},
+    ]
 
+    test('groupBy without elementSelector', () => {
+      const result = groupBy(source, x => x.name)
+      expect(result).toEqual({
+        a: [
+          {name: 'a', value: 1},
+          {name: 'a', value: 3},
+        ],
+        b: [
+          {name: 'b', value: 2},
+          {name: 'b', value: 4},
+        ],
+      })
+    })
+
+    test('groupBy with elementSelector', () => {
       const result = groupBy(
         source,
         x => x.name,

@@ -1,3 +1,13 @@
+/**
+ * Wait for a number of milliseconds.
+ *
+ * # Example
+ *
+ * ```ts
+ * await wait(10)
+ * await wait(10, () => 'something')
+ * ```
+ */
 export function wait<T>(ms: number, fn?: () => T): Promise<T> {
   return new Promise<T>(resolve =>
     setTimeout(() => resolve(fn ? fn() : (undefined as T)), ms)

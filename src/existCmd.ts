@@ -1,6 +1,19 @@
 import cp from 'child_process'
 import os from 'os'
 
+/**
+ * Check if a command exists in the current environment.
+ *
+ * # Example
+ *
+ * ```ts
+ * if (existCmd('ls')) {
+ *   console.log('ls exists')
+ * } else {
+ *   console.log('ls does not exist')
+ * }
+ * ```
+ */
 export function existCmd(cmd: string): boolean {
   const isWindows = os.platform() === 'win32'
   const where = isWindows ? 'where' : 'which'
