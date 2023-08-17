@@ -66,7 +66,7 @@ if (import.meta.vitest) {
 
     test('should log the execution time of a function', async () => {
       const fn = vi.fn(() => 1)
-      const ret = await timelog('test', () => fn())
+      const ret = timelog('test', () => fn())
 
       expect(fn).toBeCalledTimes(1)
       expect(ret).toBe(1)
@@ -78,7 +78,7 @@ if (import.meta.vitest) {
     })
 
     test('should hide the starting log', async () => {
-      const fn = vi.fn(() => 1)
+      const fn = vi.fn(() => Promise.resolve(1))
       const ret = await timelog('test', () => fn(), true)
 
       expect(fn).toBeCalledTimes(1)
