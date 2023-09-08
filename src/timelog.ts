@@ -22,7 +22,6 @@ export function timelog<T>(
   hideStartLog?: boolean
 ): Promise<T>
 export function timelog<T>(log: string, fn: () => T, hideStartLog?: boolean): T
-export function timelog<T>(log: string, fn: () => T, hideStartLog?: boolean): T
 export function timelog<T>(
   log: string,
   fn: () => Promise<T> | T,

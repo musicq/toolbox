@@ -4,8 +4,10 @@
  * # Example
  *
  * ```ts
- * await runParallel([wait(40), wait(20), wait(50), wait(10)], 2)
- * //=> [40, 20, 50, 10]
+ * import {wait} from '@musicq/toolbox'
+ * 
+ * const res = await runParallel([40, 20, 50, 10], wait, 2)
+ * // res => [40, 20, 50, 10]
  * ```
  *
  * If you don't specify a concurrency limit, it will default to run all promises in parallel.
