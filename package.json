@@ -5,7 +5,9 @@
   "scripts": {
     "build": "tsup src/*.ts",
     "test:w": "vitest -w",
-    "test": "vitest --run --coverage"
+    "test": "vitest --run --coverage",
+    "prepublish": "npm run build"
+
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
