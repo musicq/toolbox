@@ -12,27 +12,25 @@
  *
  * You can run promises sequentially by setting the concurrency limit to 1.
  */
-export async function runParallel(
-  promises: Promise<any>[],
+export async function runParallel<T, U>(
+  data: T[],
+  mapper: (v: T, i: number) => Promise<U>,
   concurrency?: number
-): Promise<any[]> {
-  concurrency ??= promises.length
-
-  const results: any[] = []
+): Promise<U[]> {
+  concurrency ??= data.length
   let index = concurrency - 1
+  const results: U[] = []
 
-  const executeNext = async (promise: Promise<any>, idx: number) => {
-    if (idx >= promises.length) return
+  const executeNext = async (item: T, idx: number) => {
+    if (idx >= data.length) return
 
-    results[idx] = await promise
+    results[idx] = await mapper(item, idx)
 
     index++
-    await executeNext(promises[index], index)
+    await executeNext(data[index], index)
   }
 
-  await Promise.all(
-    promises.slice(0, concurrency).map((p, i) => executeNext(p, i))
-  )
+  await Promise.all(data.slice(0, concurrency).map((p, i) => executeNext(p, i)))
 
   return results
 }
@@ -43,9 +41,9 @@ if (import.meta.vitest) {
       const wait = (ms: number) =>
         new Promise(resolve => setTimeout(() => resolve(ms), ms))
 
-      expect(
-        runParallel([wait(40), wait(20), wait(50), wait(10)], 2)
-      ).resolves.toStrictEqual([40, 20, 50, 10])
+      expect(runParallel([40, 20, 50, 10], wait, 2)).resolves.toStrictEqual([
+        40, 20, 50, 10,
+      ])
     })
   })
 }
