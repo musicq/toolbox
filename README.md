@@ -2,6 +2,10 @@
 
 A collection of useful functions for JavaScript developers.
 
+<p>
+  <a href="https://npmjs.com/package/@musicq/toolbox"><img src="https://img.shields.io/npm/v/@musicq/toolbox.svg" alt="npm package"></a>
+</p>
+
 ## Table of Contents
 
 - [runParallel](#runparallel)
