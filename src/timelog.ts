@@ -16,12 +16,12 @@
  * //=> [fetch google]: 100.123ms
  * ```
  */
+export function timelog<T>(log: string, fn: () => T, hideStartLog?: boolean): T
 export function timelog<T>(
   log: string,
   fn: () => Promise<T>,
   hideStartLog?: boolean
 ): Promise<T>
-export function timelog<T>(log: string, fn: () => T, hideStartLog?: boolean): T
 export function timelog<T>(
   log: string,
   fn: () => Promise<T> | T,
