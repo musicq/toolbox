@@ -7,7 +7,6 @@
     "test:w": "vitest -w",
     "test": "vitest --run --coverage",
     "prepublish": "npm run build"
-
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -39,6 +38,7 @@
     "vitest": "^0.34.1"
   },
   "dependencies": {
-    "unwrapit": "^2.2.0"
+    "execa": "^8.0.1",
+    "unwrapit": "^2.3.0"
   }
 }
