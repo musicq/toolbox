@@ -1,6 +1,6 @@
 {
   "name": "@musicq/toolbox",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Utility functions",
   "scripts": {
     "build": "tsup src/*.ts",
